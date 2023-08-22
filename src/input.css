@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+body{
+    background: url(/src/img/wave-haikei.svg);
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box-shadow{
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+@media (max-width:800px) {
+    body{
+        background: url(/src/img/wave-haikei-mobile.svg);
+        width: 100%;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
