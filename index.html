@@ -6,12 +6,64 @@
     <title>CSC 415 CALCULATOR</title>
     <link rel="stylesheet" href="/src/input.css">
     <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="relative">
 
     <div class="w-full h-full z-50 pt-20">
         <div id="calculator-container" class="bg-white w-[85%] md:w-[60%] mx-auto h-[80vh] rounded-lg shadow-2xl box-shadow">
-            <div class="w-full h-[30vh] bg-[#002233] bg-opacity-95"></div>
+            <form class="relative text-white flex justify-end items-center px-8 w-full h-[30vh] bg-[#002233] bg-opacity-95">
+                <i class="fa fa-history absolute top-6 left-6 cursor-pointer text-2xl"></i>
+                
+                <h2 class="text-5xl">900</h2>
+            </form>
+            <div class="w-full h-[10vh] bg-[#fdfdfd] flex justify-between items-center">
+                <div class="flex gap-6 max-[280px]:gap-4 items-center px-5">
+                    <button class="text-xl max-[280px]:text-xs font-semibold">M+</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">M-</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">MR</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">MC</button>
+                </div>
+
+                <div class="w-[20%] h-full bg-red-500 px-8 text-white flex items-center justify-center">
+                    <p class="text-2xl">C</p>
+                </div>
+            </div>
+            <div class="w-full h-[40vh] bg-[#323846] pt-2">
+                <div class="w-full h-full text-white grid grid-cols-5 grid-rows-5">
+
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">X<sup>Y</sup></div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer"><sup>2</sup>√</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer"><sup>3</sup>√</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">÷</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">x</div>
+
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">sin</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">7</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">8</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">9</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">-</div>
+
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">cos</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">4</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">5</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">6</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">+</div>
+
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">tan</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">1</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">2</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">3</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-2xl rounded-tl cursor-pointer row-span-2 bg-[#4fd14d] bg-opacity-95 border-none mb-[0.1rem]">=</div>
+
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">sin</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">7</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">8</div>
+                    <div class="text-xl flex justify-center items-center hover:shadow-lg rounded cursor-pointer">9</div>
+        
+
+                </div>
+            </div>
         </div>
     </div>
 
