@@ -70,7 +70,9 @@ operatorButtons.forEach(button => {
 
         // Add operator and num to variables
         operator = button.textContent;
-        num1 += parseFloat(display.textContent);
+        if (num1 == null) {
+            num1 += parseFloat(display.textContent);
+        }
         
         // Clear display text and replace with new text(num 2)
 
