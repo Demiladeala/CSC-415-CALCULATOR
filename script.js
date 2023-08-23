@@ -5,6 +5,7 @@ const deleteTextButton = document.querySelector('.del-button');
 const equalButton = document.querySelector('.equal-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 const shadowElements = document.querySelectorAll('.hover-box-shadow-top');
+let result = null;
 let operator = '';
 let operatorActive = false;
 let num1 = null;
@@ -26,7 +27,8 @@ shadowElements.forEach(element => {
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         const pressedNumber = button.textContent;
-        if (display.textContent === '0' || operatorActive) {
+        if (display.textContent === '0' || operatorActive || result !== null) {
+            result = null;
             display.textContent = pressedNumber;
             operatorActive = false;
             operatorButtons.forEach(opButton => {
@@ -88,7 +90,7 @@ operatorButtons.forEach(button => {
 equalButton.addEventListener('click', () =>  {
     if (num1 != null) {
         num2 = parseFloat(display.textContent);
-        const result = basicArithmetic(operator, num1, num2);
+        result = basicArithmetic(operator, num1, num2);
         display.textContent = result;
         num1 = null;
         num2 = null;
@@ -96,7 +98,7 @@ equalButton.addEventListener('click', () =>  {
     }
 })
 
-// Basic arithmetic implementation and
+// Basic arithmetic implementation and exponential implementation
 function basicArithmetic(operator, num1, num2) {
     switch (operator) {
         case '÷':
