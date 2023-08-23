@@ -749,6 +749,12 @@ body{
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 
 .box-shadow{
@@ -771,53 +777,9 @@ body{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:shadow-lg:hover{
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 @media (max-width: 280px){
-  .max-\[280px\]\:w-\[80\%\]{
-    width: 80%;
-  }
-
-  .max-\[280px\]\:w-\[70\%\]{
-    width: 70%;
-  }
-
-  .max-\[280px\]\:w-\[50\%\]{
-    width: 50%;
-  }
-
-  .max-\[280px\]\:gap-3{
-    gap: 0.75rem;
-  }
-
-  .max-\[280px\]\:gap-1{
-    gap: 0.25rem;
-  }
-
-  .max-\[280px\]\:gap-2{
-    gap: 0.5rem;
-  }
-
   .max-\[280px\]\:gap-4{
     gap: 1rem;
-  }
-
-  .max-\[280px\]\:gap-5{
-    gap: 1.25rem;
-  }
-
-  .max-\[280px\]\:px-0{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .max-\[280px\]\:text-sm{
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .max-\[280px\]\:text-xs{
