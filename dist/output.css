@@ -641,16 +641,16 @@ video {
   gap: 1.5rem;
 }
 
-.rounded{
-  border-radius: 0.25rem;
-}
-
 .rounded-lg{
   border-radius: 0.5rem;
 }
 
 .rounded-tl{
   border-top-left-radius: 0.25rem;
+}
+
+.border{
+  border-width: 1px;
 }
 
 .border-none{
@@ -701,8 +701,14 @@ video {
   padding-right: 2rem;
 }
 
-.pt-2{
-  padding-top: 0.5rem;
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .pt-20{
@@ -759,6 +765,14 @@ body{
 
 .box-shadow{
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+.hover-box-shadow:hover{
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8);
+}
+
+.hover-box-shadow-top:hover{
+  box-shadow: 0  0 10px 2px rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width:800px) {
