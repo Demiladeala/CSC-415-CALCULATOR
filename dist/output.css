@@ -653,10 +653,6 @@ video {
   border-top-left-radius: 0.25rem;
 }
 
-.border{
-  border-width: 1px;
-}
-
 .border-none{
   border-style: none;
 }
@@ -703,16 +699,6 @@ video {
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
-}
-
-.px-2{
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-1{
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .pt-20{
@@ -777,6 +763,11 @@ body{
 
 .hover-box-shadow-top:hover{
   box-shadow: 0  0 10px 2px rgba(0, 0, 0, 0.8);
+}
+
+.active{
+  background-color: white;
+  color: #002233;
 }
 
 @media (max-width:800px) {
