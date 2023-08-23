@@ -15,51 +15,51 @@
             <form class="relative text-white flex justify-end items-center px-8 w-full h-[30vh] bg-[#002233] bg-opacity-95">
                 <i class="fa fa-history absolute top-6 left-6 cursor-pointer text-2xl"></i>
                 
-                <h2 class="text-5xl">900</h2>
+                <h2 id="display" class="text-5xl overflow-hidden">0</h2>
             </form>
             <div class="w-full h-[10vh] bg-[#fdfdfd] flex justify-between items-center">
                 <div class="flex h-full gap-6 max-[280px]:gap-4 items-center px-5">
-                    <button class="text-xl max-[280px]:text-xs font-semibold hover-box-shadow-top">M+</button>
-                    <button class="text-xl max-[280px]:text-xs font-semibold hover-box-shadow-top">M-</button>
-                    <button class="text-xl max-[280px]:text-xs font-semibold hover-box-shadow-top">MR</button>
-                    <button class="text-xl max-[280px]:text-xs font-semibold hover-box-shadow-top">MC</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">M+</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">M-</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">MR</button>
+                    <button class="text-xl max-[280px]:text-xs font-semibold">MC</button>
                 </div>
 
-                <div class="w-[20%] h-full bg-red-500 px-8 text-white flex items-center justify-center">
+                <div class="w-[20%] h-full bg-red-500 hover:shadow-2xl px-8 text-white flex items-center justify-center">
                     <p class="text-2xl">AC</p>
                 </div>
             </div>
             <div class="w-full h-[40vh] bg-[#323846]">
                 <div class="w-full h-full text-white grid grid-cols-5 grid-rows-5">
 
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">X<sup>Y</sup></div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer"><sup>2</sup>√</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer"><sup>3</sup>√</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">÷</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">x</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">X<sup>Y</sup></div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer"><sup>2</sup>√</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer"><sup>3</sup>√</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">÷</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">x</div>
 
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">sin</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">7</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">8</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">9</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">-</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">sin</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">7</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">8</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">9</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">-</div>
 
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">cos</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">4</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">5</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">6</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">+</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">cos</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">4</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">5</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">6</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">+</div>
 
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">tan</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">1</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">2</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">3</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer">tan</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">1</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">2</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">3</div>
                     <div class="text-xl flex justify-center items-center hover:shadow-2xl rounded-tl cursor-pointer row-span-2 bg-[#4fd14d] bg-opacity-95 border-none mb-[0.1rem]">=</div>
 
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">CE</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">DEL</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">0</div>
-                    <div class="text-xl flex justify-center items-center hover-box-shadow-top  cursor-pointer">.</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer clear-button">CE</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer del-button">DEL</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">0</div>
+                    <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">.</div>
         
 
                 </div>
