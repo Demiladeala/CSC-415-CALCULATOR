@@ -1,5 +1,3 @@
-//import './calculatorFunc.js';
-
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
 const clearTextButton = document.querySelector('.clear-button');
@@ -74,7 +72,13 @@ operatorButtons.forEach(button => {
         operatorActive = true;
 
         // Add operator and num to variables
-        operator = button.textContent;
+        if (button.classList.contains('pow'))
+        {
+            operator = 'exp';
+        }
+        else {
+            operator = button.textContent;
+        }
         if (num1 == null) {
             num1 += parseFloat(display.textContent);
         }
@@ -92,7 +96,7 @@ equalButton.addEventListener('click', () =>  {
     }
 })
 
-// Basic arithmeticimplementation
+// Basic arithmetic implementation and
 function basicArithmetic(operator, num1, num2) {
     switch (operator) {
         case '÷':
@@ -103,6 +107,8 @@ function basicArithmetic(operator, num1, num2) {
             return addFunc(num1, num2);
         case '-':
             return subtractFunc(num1, num2);
+        case 'exp':
+            return powFunc(num1, num2);
         default:
             console.log("Operator is empty");
             break;
