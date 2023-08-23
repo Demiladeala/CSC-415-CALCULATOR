@@ -1,9 +1,10 @@
-import './calculatorFunc.js';
+//import './calculatorFunc.js';
 
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
 const clearTextButton = document.querySelector('.clear-button');
 const deleteTextButton = document.querySelector('.del-button');
+const equalButton = document.querySelector('.equal-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 const shadowElements = document.querySelectorAll('.hover-box-shadow-top');
 let operator = '';
@@ -53,7 +54,7 @@ clearTextButton.addEventListener('click', () => {
 });
 
 deleteTextButton.addEventListener('click', () => {
-    if (display.textContent !== '0' && !operator) {
+    if (display.textContent !== '0' && !operatorActive) {
         display.textContent = display.textContent.slice(0, -1);
         if (display.textContent === '') {
             display.textContent = '0';
@@ -77,8 +78,92 @@ operatorButtons.forEach(button => {
         if (num1 == null) {
             num1 += parseFloat(display.textContent);
         }
-        
-        // Clear display text and replace with new text(num 2)
-
     });
 });
+
+equalButton.addEventListener('click', () =>  {
+    if (num1 != null) {
+        num2 = parseFloat(display.textContent);
+        const result = basicArithmetic(operator, num1, num2);
+        display.textContent = result;
+        num1 = null;
+        num2 = null;
+        operator = '';
+    }
+})
+
+// Basic arithmeticimplementation
+function basicArithmetic(operator, num1, num2) {
+    switch (operator) {
+        case '÷':
+            return divideFunc(num1, num2);
+        case 'x':
+            return multiplyFunc(num1, num2);
+        case '+':
+            return addFunc(num1, num2);
+        case '-':
+            return subtractFunc(num1, num2);
+        default:
+            console.log("Operator is empty");
+            break;
+    }
+}
+
+// Basic Arithmetic
+// Add function
+function addFunc(num1, num2) {
+    var result = num1 + num2;
+    return result;
+}
+
+// Subtraction function
+function subtractFunc(num1, num2) {
+    var result = num1 - num2;
+    return result;
+}
+
+// Division function
+function divideFunc(num1, num2) {
+    var result = num1 / num2;
+    return result;
+}
+
+// Multiply function
+function multiplyFunc(num1, num2) {
+    var result = num1 * num2;
+    return result;
+}
+
+// Scientific functions
+// Sine function
+function sinFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.sin(angle);
+}
+
+// Cosine function
+function cosFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.cos(angle);
+}
+
+// Tan function
+function tanFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.tan(angle);
+}
+
+// Power function
+function powFunc(num1, exponent) {
+    return Math.pow(num1, exponent);
+}
+
+// Square root function
+function sqrtFunc(num1) {
+    return Math.sqrt(num1);
+}
+
+// Cube root function
+function cubeFunc(num1) {
+    return Math.pow(num1, 1/3);
+}
