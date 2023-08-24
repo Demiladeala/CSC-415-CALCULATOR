@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
@@ -740,7 +740,7 @@ video {
 }
 
 *{
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Gilroy-Medium', sans-serif;
 }
 
 body{

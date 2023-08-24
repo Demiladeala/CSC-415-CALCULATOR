@@ -25,6 +25,17 @@ shadowElements.forEach(element => {
 });
 
 
+unaryOperatorButtons.forEach(element => {
+    element.addEventListener('click', () => {
+        element.style.backgroundColor = 'white'
+        setTimeout(() => {
+            element.style.backgroundColor = '#323846'
+        }, 100);
+    });
+});
+
+
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         const pressedNumber = button.textContent;
