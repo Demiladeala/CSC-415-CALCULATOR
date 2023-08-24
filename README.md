@@ -1,4 +1,4 @@
-# Calculator Application - CSC 415 Assignment
+# CSC-415-CALCULATOR
 
 This is a simple calculator web application that allows users to perform basic arithmetic operations, exponentiation, and scientific calculations. The application includes both front-end and back-end components.
 
@@ -90,4 +90,4 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- The calculator application is based on the [Calculator](https://github.com/Demiladeala/CSC-415-CALCULATOR) project by [Favour Olusayo](https://github.com/OluwaFavour) and [Oluwademilade Ala](https://github.com/Demiladeala).
+- The calculator application is based on the [CSC-415-CALCULATOR](https://github.com/Demiladeala/CSC-415-CALCULATOR) project by [Favour Olusayo](https://github.com/OluwaFavour) and [Oluwademilade Ala](https://github.com/Demiladeala).
