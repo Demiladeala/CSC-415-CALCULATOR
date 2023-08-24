@@ -8,7 +8,7 @@
 }
 
 body{
-    background: url(/src/img/wave-haikei.svg);
+    background: url('img/wave-haikei.svg');
     width: 100%;
     min-height: 100vh;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ body{
 
 @media (max-width:800px) {
     body{
-        background: url(/src/img/wave-haikei-mobile.svg);
+        background: url('img/wave-haikei-mobile.svg');
         width: 100%;
         min-height: 100vh;
         background-repeat: no-repeat;
