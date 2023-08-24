@@ -1,4 +1,4 @@
-import * as Functions from "./functions.mjs";
+//import * as Functions from "./functions.mjs";
 
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
