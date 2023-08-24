@@ -1,5 +1,3 @@
-import { Decimal } from "./node_modules/decimal.js/decimal.mjs";
-
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
 const clearTextButton = document.querySelector('.clear-button');
@@ -193,15 +191,15 @@ equalButton.addEventListener('click', () => {
 function binaryOperationsFunc(operator, num1, num2) {
     switch (operator) {
         case '÷':
-            return Functions.divideFunc(num1, num2);
+            return divideFunc(num1, num2);
         case 'x':
-            return Functions.multiplyFunc(num1, num2);
+            return multiplyFunc(num1, num2);
         case '+':
-            return Functions.addFunc(num1, num2);
+            return addFunc(num1, num2);
         case '-':
-            return Functions.subtractFunc(num1, num2);
+            return subtractFunc(num1, num2);
         case 'exp':
-            return Functions.powFunc(num1, num2);
+            return powFunc(num1, num2);
         default:
             console.log("Operator is empty");
             break;
@@ -212,15 +210,15 @@ function binaryOperationsFunc(operator, num1, num2) {
 function unaryOperationsFunc(operator, num1) {
     switch (operator) {
         case 'sin':
-            return Functions.sinFunc(num1);
+            return sinFunc(num1);
         case 'cos':
-            return Functions.cosFunc(num1);
+            return cosFunc(num1);
         case 'tan':
-            return Functions.tanFunc(num1);
+            return tanFunc(num1);
         case 'sqrt':
-            return Functions.sqrtFunc(num1);
+            return sqrtFunc(num1);
         case 'cbrt':
-            return Functions.cbrtFunc(num1);
+            return cbrtFunc(num1);
         default:
             console.log("Operator does not match any case");
             break;
