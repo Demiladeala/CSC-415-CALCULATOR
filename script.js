@@ -1,4 +1,4 @@
-//import * as Functions from "./functions.mjs";
+import { Decimal } from "./node_modules/decimal.js/decimal.mjs";
 
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
@@ -225,4 +225,63 @@ function unaryOperationsFunc(operator, num1) {
             console.log("Operator does not match any case");
             break;
     }
+}
+
+// Basic Arithmetic
+// Add function
+function addFunc(num1, num2) {
+    var result = num1 + num2;
+    return result;
+}
+
+// Subtraction function
+function subtractFunc(num1, num2) {
+    var result = num1 - num2;
+    return result;
+}
+
+// Division function
+function divideFunc(num1, num2) {
+    var result = Decimal(num1).div(Decimal(num2));
+    return result;
+}
+
+// Multiply function
+function multiplyFunc(num1, num2) {
+    var result = Decimal(num1).times(Decimal(num2));
+    return result;
+}
+
+// Scientific functions
+// Sine function
+function sinFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.sin(angle);
+}
+
+// Cosine function
+function cosFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.cos(angle);
+}
+
+// Tan function
+function tanFunc(num1) {
+    var angle = (num1 * Math.PI) / 180;
+    return Math.tan(angle);
+}
+
+// Power function
+function powFunc(num1, exponent) {
+    return Math.pow(num1, exponent);
+}
+
+// Square root function
+function sqrtFunc(num1) {
+    return Math.sqrt(num1);
+}
+
+// Cube root function
+function cbrtFunc(num1) {
+    return Math.pow(num1, 1 / 3);
 }
