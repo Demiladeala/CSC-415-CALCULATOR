@@ -6,7 +6,11 @@ const equalButton = document.querySelector('.equal-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 const unaryOperatorButtons = document.querySelectorAll('.unary-operator');
 const shadowElements = document.querySelectorAll('.hover-box-shadow-top');
+const memoryButtons = document.querySelectorAll('.memory');
+const memoryStyle = document.querySelectorAll('.mem-style');
+const mrButton = document.querySelector('.mem-recall');
 let result = null;
+let memory = 0; // Default memory value
 let operator = '';
 let operatorActive = false;
 let num1 = null;
@@ -14,27 +18,62 @@ let num2 = null;
 
 shadowElements.forEach(element => {
     element.addEventListener('click', () => {
-        if (element.classList.contains('hover-box-shadow-top')) {
-            setTimeout(() => {
-                element.classList.remove('hover-box-shadow-top');
-            }, 100);    
-        } else {
-            element.classList.add('hover-box-shadow-top');
-        }
+       element.style.boxShadow = '0  0 10px 2px rgba(0, 0, 0, 0.8)';
+       setTimeout(() => {
+        element.style.boxShadow = 'none';
+    }, 100);
     });
 });
 
 
 unaryOperatorButtons.forEach(element => {
     element.addEventListener('click', () => {
-        element.style.backgroundColor = 'white'
+        element.style.backgroundColor = 'white';
         setTimeout(() => {
-            element.style.backgroundColor = '#323846'
+            element.style.backgroundColor = '#323846';
         }, 100);
     });
 });
 
+memoryStyle.forEach(element => {
+    element.addEventListener('click', () => {
+        element.style.border = 'none';
+        element.style.borderBottom = '2px solid #002233';
+        setTimeout(() => {
+            element.style.borderBottom = 'none';
+        }, 100);
+    });
+});
 
+memoryButtons.forEach(memButton => {
+    memButton.addEventListener('click', () => {
+        switch (memButton.textContent) {
+            case 'M+':
+                memory += parseFloat(display.textContent);
+                break;
+            case 'M-':
+                memory -= parseFloat(display.textContent);
+                break;
+            case 'MR':
+                display.textContent = memory;
+                break;
+            case 'MC':
+                memory = 0;
+                mrButton.classList.remove('mem-active');
+                break;
+            default:
+                console.log("No matching case for memory button");
+                break;
+        }
+
+        // Check if memory is not equal to 0 and the button is "MR"
+        if (memory !== 0) {
+            mrButton.classList.add('mem-active');
+        } else {
+            mrButton.classList.remove('mem-active');
+        }
+    });
+});
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -68,6 +107,12 @@ clearTextButton.addEventListener('click', () => {
     operatorButtons.forEach(opButton => {
         opButton.classList.remove('active');
     });
+    clearTextButton.style.backgroundColor = 'white';
+    clearTextButton.style.color = 'black';
+    setTimeout(() => {
+        clearTextButton.style.backgroundColor = '#ef4444';
+        clearTextButton.style.color = 'white';
+    }, 100);
 });
 
 deleteTextButton.addEventListener('click', () => {
@@ -91,8 +136,7 @@ operatorButtons.forEach(button => {
         operatorActive = true;
 
         // Add operator and num to variables
-        if (button.classList.contains('pow'))
-        {
+        if (button.classList.contains('pow')) {
             operator = 'exp';
         }
         else {
@@ -120,9 +164,9 @@ unaryOperatorButtons.forEach(opButton => {
         display.textContent = result;
         num1 = null;
         operator = '';
-    })
-})
-equalButton.addEventListener('click', () =>  {
+    });
+});
+equalButton.addEventListener('click', () => {
     if (num1 != null) {
         num2 = parseFloat(display.textContent);
         result = binaryOperationsFunc(operator, num1, num2);
@@ -131,6 +175,13 @@ equalButton.addEventListener('click', () =>  {
         num2 = null;
         operator = '';
     }
+
+    equalButton.style.backgroundColor = 'white';
+    equalButton.style.color = 'black';
+    setTimeout(() => {
+        equalButton.style.backgroundColor = '#4fd14d';
+        equalButton.style.color = 'white';
+    }, 100);
 })
 
 // Binary Operation Functions
@@ -226,5 +277,5 @@ function sqrtFunc(num1) {
 
 // Cube root function
 function cbrtFunc(num1) {
-    return Math.pow(num1, 1/3);
+    return Math.pow(num1, 1 / 3);
 }
