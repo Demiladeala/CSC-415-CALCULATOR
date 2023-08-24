@@ -1,3 +1,5 @@
+import * as Functions from "./functions.mjs";
+
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
 const clearTextButton = document.querySelector('.clear-button');
@@ -107,6 +109,8 @@ clearTextButton.addEventListener('click', () => {
     operatorButtons.forEach(opButton => {
         opButton.classList.remove('active');
     });
+
+    // Style
     clearTextButton.style.backgroundColor = 'white';
     clearTextButton.style.color = 'black';
     setTimeout(() => {
@@ -167,7 +171,7 @@ unaryOperatorButtons.forEach(opButton => {
     });
 });
 equalButton.addEventListener('click', () => {
-    if (num1 != null) {
+    if (num1 !== null) {
         num2 = parseFloat(display.textContent);
         result = binaryOperationsFunc(operator, num1, num2);
         display.textContent = result;
@@ -176,6 +180,7 @@ equalButton.addEventListener('click', () => {
         operator = '';
     }
 
+    // Style
     equalButton.style.backgroundColor = 'white';
     equalButton.style.color = 'black';
     setTimeout(() => {
@@ -188,15 +193,15 @@ equalButton.addEventListener('click', () => {
 function binaryOperationsFunc(operator, num1, num2) {
     switch (operator) {
         case '÷':
-            return divideFunc(num1, num2);
+            return Functions.divideFunc(num1, num2);
         case 'x':
-            return multiplyFunc(num1, num2);
+            return Functions.multiplyFunc(num1, num2);
         case '+':
-            return addFunc(num1, num2);
+            return Functions.addFunc(num1, num2);
         case '-':
-            return subtractFunc(num1, num2);
+            return Functions.subtractFunc(num1, num2);
         case 'exp':
-            return powFunc(num1, num2);
+            return Functions.powFunc(num1, num2);
         default:
             console.log("Operator is empty");
             break;
@@ -207,75 +212,17 @@ function binaryOperationsFunc(operator, num1, num2) {
 function unaryOperationsFunc(operator, num1) {
     switch (operator) {
         case 'sin':
-            return sinFunc(num1);
+            return Functions.sinFunc(num1);
         case 'cos':
-            return cosFunc(num1);
+            return Functions.cosFunc(num1);
         case 'tan':
-            return tanFunc(num1);
+            return Functions.tanFunc(num1);
         case 'sqrt':
-            return sqrtFunc(num1);
+            return Functions.sqrtFunc(num1);
         case 'cbrt':
-            return cbrtFunc(num1);
+            return Functions.cbrtFunc(num1);
         default:
             console.log("Operator does not match any case");
             break;
     }
-}
-// Basic Arithmetic
-// Add function
-function addFunc(num1, num2) {
-    var result = num1 + num2;
-    return result;
-}
-
-// Subtraction function
-function subtractFunc(num1, num2) {
-    var result = num1 - num2;
-    return result;
-}
-
-// Division function
-function divideFunc(num1, num2) {
-    var result = num1 / num2;
-    return result;
-}
-
-// Multiply function
-function multiplyFunc(num1, num2) {
-    var result = num1 * num2;
-    return result;
-}
-
-// Scientific functions
-// Sine function
-function sinFunc(num1) {
-    var angle = (num1 * Math.PI) / 180;
-    return Math.sin(angle);
-}
-
-// Cosine function
-function cosFunc(num1) {
-    var angle = (num1 * Math.PI) / 180;
-    return Math.cos(angle);
-}
-
-// Tan function
-function tanFunc(num1) {
-    var angle = (num1 * Math.PI) / 180;
-    return Math.tan(angle);
-}
-
-// Power function
-function powFunc(num1, exponent) {
-    return Math.pow(num1, exponent);
-}
-
-// Square root function
-function sqrtFunc(num1) {
-    return Math.sqrt(num1);
-}
-
-// Cube root function
-function cbrtFunc(num1) {
-    return Math.pow(num1, 1 / 3);
 }
