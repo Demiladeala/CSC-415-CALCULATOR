@@ -4,6 +4,7 @@ const clearTextButton = document.querySelector('.clear-button');
 const deleteTextButton = document.querySelector('.del-button');
 const equalButton = document.querySelector('.equal-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
+const unaryOperatorButtons = document.querySelectorAll('.unary-operator');
 const shadowElements = document.querySelectorAll('.hover-box-shadow-top');
 let result = null;
 let operator = '';
@@ -29,7 +30,12 @@ numberButtons.forEach(button => {
         const pressedNumber = button.textContent;
         if (display.textContent === '0' || operatorActive || result !== null) {
             result = null;
-            display.textContent = pressedNumber;
+            if (button.textContent === '.') {
+                display.textContent += pressedNumber;
+            }
+            else {
+                display.textContent = pressedNumber;
+            }
             operatorActive = false;
             operatorButtons.forEach(opButton => {
                 opButton.classList.remove('active');
@@ -87,10 +93,28 @@ operatorButtons.forEach(button => {
     });
 });
 
+unaryOperatorButtons.forEach(opButton => {
+    opButton.addEventListener('click', () => {
+        if (opButton.classList.contains('trig')) {
+            operator = opButton.textContent;
+        }
+        else if (opButton.classList.contains('sqrt')) {
+            operator = 'sqrt';
+        }
+        else if (opButton.classList.contains('cbrt')) {
+            operator = 'cbrt';
+        }
+        num1 = parseFloat(display.textContent);
+        result = unaryOperationsFunc(operator, num1);
+        display.textContent = result;
+        num1 = null;
+        operator = '';
+    })
+})
 equalButton.addEventListener('click', () =>  {
     if (num1 != null) {
         num2 = parseFloat(display.textContent);
-        result = basicArithmetic(operator, num1, num2);
+        result = binaryOperationsFunc(operator, num1, num2);
         display.textContent = result;
         num1 = null;
         num2 = null;
@@ -98,8 +122,8 @@ equalButton.addEventListener('click', () =>  {
     }
 })
 
-// Basic arithmetic implementation and exponential implementation
-function basicArithmetic(operator, num1, num2) {
+// Binary Operation Functions
+function binaryOperationsFunc(operator, num1, num2) {
     switch (operator) {
         case '÷':
             return divideFunc(num1, num2);
@@ -117,6 +141,24 @@ function basicArithmetic(operator, num1, num2) {
     }
 }
 
+// Unary Operation Functions
+function unaryOperationsFunc(operator, num1) {
+    switch (operator) {
+        case 'sin':
+            return sinFunc(num1);
+        case 'cos':
+            return cosFunc(num1);
+        case 'tan':
+            return tanFunc(num1);
+        case 'sqrt':
+            return sqrtFunc(num1);
+        case 'cbrt':
+            return cbrtFunc(num1);
+        default:
+            console.log("Operator does not match any case");
+            break;
+    }
+}
 // Basic Arithmetic
 // Add function
 function addFunc(num1, num2) {
@@ -172,6 +214,6 @@ function sqrtFunc(num1) {
 }
 
 // Cube root function
-function cubeFunc(num1) {
+function cbrtFunc(num1) {
     return Math.pow(num1, 1/3);
 }
