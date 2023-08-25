@@ -174,10 +174,12 @@ unaryOperatorButtons.forEach(opButton => {
 });
 
 equalButton.addEventListener('click', () => {
+    const xhttp = new XMLHttpRequest(); // AJAX
     if (num1 !== null) {
         num2 = parseFloat(display.textContent);
         result = binaryOperationsFunc(operator, num1, num2);
         display.textContent = result;
+        xhttp.open('GET', "")
         num1 = null;
         num2 = null;
         operator = '';
