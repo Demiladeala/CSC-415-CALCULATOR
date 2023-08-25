@@ -79,8 +79,11 @@ numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         const pressedNumber = button.textContent;
         if (display.textContent === '0' || operatorActive || result !== null) {
-            result = null;
             if (button.textContent === '.') {
+                if (operatorActive || result != null)
+                {
+                    display.textContent = '0';
+                }
                 display.textContent += pressedNumber;
             }
             else {
@@ -90,6 +93,7 @@ numberButtons.forEach(button => {
             operatorButtons.forEach(opButton => {
                 opButton.classList.remove('active');
             });
+            result = null;
         } else {
             if (display.textContent.length !== 9) {
                 if (pressedNumber === '.' && display.textContent.includes('.'))
@@ -168,6 +172,7 @@ unaryOperatorButtons.forEach(opButton => {
         operator = '';
     });
 });
+
 equalButton.addEventListener('click', () => {
     if (num1 !== null) {
         num2 = parseFloat(display.textContent);
@@ -189,6 +194,8 @@ equalButton.addEventListener('click', () => {
 
 // Binary Operation Functions
 function binaryOperationsFunc(operator, num1, num2) {
+    num1 = Decimal(num1);
+    num2 = Decimal(num2);
     switch (operator) {
         case '÷':
             return divideFunc(num1, num2);
@@ -208,6 +215,7 @@ function binaryOperationsFunc(operator, num1, num2) {
 
 // Unary Operation Functions
 function unaryOperationsFunc(operator, num1) {
+    num1 = Decimal(num1);
     switch (operator) {
         case 'sin':
             return sinFunc(num1);
@@ -228,33 +236,33 @@ function unaryOperationsFunc(operator, num1) {
 // Basic Arithmetic
 // Add function
 function addFunc(num1, num2) {
-    var result = num1 + num2;
+    var result = num1.plus(num2);
     return result;
 }
 
 // Subtraction function
 function subtractFunc(num1, num2) {
-    var result = num1 - num2;
+    var result = num1.minus(num2);
     return result;
 }
 
 // Division function
 function divideFunc(num1, num2) {
-    var result = Decimal(num1).div(Decimal(num2));
+    var result = num1.div(num2);
     return result;
 }
 
 // Multiply function
 function multiplyFunc(num1, num2) {
-    var result = Decimal(num1).times(Decimal(num2));
+    var result = num1.times(num2);
     return result;
 }
 
 // Scientific functions
 // Sine function
 function sinFunc(num1) {
-    var angle = (num1 * Math.PI) / 180;
-    return Math.sin(angle);
+    var angle = num1.times(Decimal(Math.PI)).div(Decimal(180));
+    return angle.sine();
 }
 
 // Cosine function

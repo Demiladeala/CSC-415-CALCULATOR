@@ -12,11 +12,11 @@
 
     <div class="w-full h-full z-50 pt-20">
         <div id="calculator-container" class="bg-white w-[85%] md:w-[60%] mx-auto h-[80vh] rounded-lg shadow-2xl box-shadow">
-            <form action="" method="post" class="relative text-white flex justify-end items-center px-8 w-full h-[30vh] bg-[#002233] bg-opacity-95">
+            <div class="relative text-white flex justify-end items-center px-8 w-full h-[30vh] bg-[#002233] bg-opacity-95">
                 <i class="fa fa-history absolute top-6 left-6 cursor-pointer text-2xl"></i>
                 
                 <h2 id="display" class="text-5xl overflow-hidden">0</h2>
-            </form>
+            </div>
             <div class="w-full h-[10vh] bg-[#fdfdfd] flex justify-between items-center">
                 <div class="flex h-full gap-6 max-[280px]:gap-4 items-center px-5">
                     <button class="text-xl max-[280px]:text-xs font-semibold memory mem-style">M+</button>
@@ -60,10 +60,16 @@
                     <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer del-button">DEL</div>
                     <div class="text-xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button col-span-2">0</div>
                     <div class="text-2xl flex justify-center items-center hover-box-shadow-top cursor-pointer number-button">.</div>
-        
-
                 </div>
-            </div>
+            </div>      
+        </div>
+
+          <!-- HIDDEN FORMS -->
+          <div class="relative border hidden">
+            <div  id="num1"><p>fsdfsdfsadf</p></div>
+            <div  id="operator">asfafafafa</div>
+            <div  id="num2"></div>
+            <div  id="result"></div>
         </div>
     </div>
 
