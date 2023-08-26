@@ -108,6 +108,8 @@ clearTextButton.addEventListener('click', () => {
     display.textContent = '0';
     operator = '';
     operatorActive = false;
+    num1 = null;
+    num2 = null;
     operatorButtons.forEach(opButton => {
         opButton.classList.remove('active');
     });
@@ -132,6 +134,10 @@ deleteTextButton.addEventListener('click', () => {
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
+        // Check if button is active
+        if (button.classList.contains('active')) {
+            return;
+        }
         // Remove the 'active' class from all operator buttons
         operatorButtons.forEach(opButton => {
             opButton.classList.remove('active');
@@ -142,14 +148,48 @@ operatorButtons.forEach(button => {
         operatorActive = true;
 
         // Add operator and num to variables
-        if (button.classList.contains('pow')) {
-            operator = 'exp';
+        operator = button.classList.contains('pow') ? 'exp' : button.textContent;
+        if (num1 === null) {
+            num1 = parseFloat(display.textContent);
         }
-        else {
-            operator = button.textContent;
-        }
-        if (num1 == null) {
-            num1 += parseFloat(display.textContent);
+        else if (num1 !== null && operator)
+        {
+            let action = 'calculator.php';
+            num2 = parseFloat(display.textContent);
+            // Check if there was a previous operator, and no number input in between
+            if (num2 === num1 && operatorActive) {
+                operator = button.classList.contains('pow') ? 'exp' : button.textContent;
+                return; // No calculation, just update operator and return
+            }
+            result = binaryOperationsFunc(operator, num1, num2);
+            display.textContent = result;
+            let data = {
+                pNum1: num1,
+                pNum2: num2,
+                pOperator: operator,
+                pResult: result
+            };
+            fetch(action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data) // Handle response data
+            }).then(function(request) {
+                // Check if response is ok
+                if (request.ok) {
+                    return request.text();
+                } else {
+                    throw new Error('Error: ' + request.status);
+                }
+            }).then(function(responseData) {
+                console.log('Response:', responseData);
+                // Process response data
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
+            num1 = result;
+            num2 = null;
         }
     });
 });
@@ -165,21 +205,71 @@ unaryOperatorButtons.forEach(opButton => {
         else if (opButton.classList.contains('cbrt')) {
             operator = 'cbrt';
         }
+        let action = 'calculator.php';
         num1 = parseFloat(display.textContent);
         result = unaryOperationsFunc(operator, num1);
         display.textContent = result;
+        let data = {
+            pNum1: num1,
+            pNum2: null,
+            pOperator: operator,
+            pResult: result
+        };
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // Handle response data
+        }).then(function(request) {
+            // Check if response is ok
+            if (request.ok) {
+                return request.text();
+            } else {
+                throw new Error('Error: ' + request.status);
+            }
+        }).then(function(responseData) {
+            console.log('Response:', responseData);
+            // Process response data
+        }).catch(function(error) {
+            console.error('Error:', error);
+        });
         num1 = null;
         operator = '';
     });
 });
 
 equalButton.addEventListener('click', () => {
-    const xhttp = new XMLHttpRequest(); // AJAX
-    if (num1 !== null) {
+    if (num1 !== null && !operatorActive) {
+        let action = 'calculator.php';
         num2 = parseFloat(display.textContent);
         result = binaryOperationsFunc(operator, num1, num2);
         display.textContent = result;
-        xhttp.open('GET', "")
+        let data = {
+            pNum1: num1,
+            pNum2: num2,
+            pOperator: operator,
+            pResult: result
+        };
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // Handle response data
+        }).then(function(request) {
+            // Check if response is ok
+            if (request.ok) {
+                return request.text();
+            } else {
+                throw new Error('Error: ' + request.status);
+            }
+        }).then(function(responseData) {
+            console.log('Response:', responseData);
+            // Process response data
+        }).catch(function(error) {
+            console.error('Error:', error);
+        });
         num1 = null;
         num2 = null;
         operator = '';
