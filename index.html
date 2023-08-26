@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSC 415 CALCULATOR</title>
-    <link rel="stylesheet" href="../CSC415/src/input.css">
-    <link rel="stylesheet" href="../CSC415/dist/output.css">
+    <link rel="stylesheet" href="/src/input.css">
+    <link rel="stylesheet" href="/dist/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="relative">
@@ -13,7 +13,28 @@
     <div class="w-full h-full z-50 pt-20">
         <div id="calculator-container" class="bg-white w-[85%] md:w-[60%] mx-auto h-[80vh] rounded-lg shadow-2xl box-shadow">
             <div class="relative text-white flex justify-end items-center px-8 w-full h-[30vh] bg-[#002233] bg-opacity-95">
-                <i class="fa fa-history absolute top-6 left-6 cursor-pointer text-2xl"></i>
+                <i id="menuIcon" class="fa fa-history absolute top-6 left-6 cursor-pointer text-2xl"></i>
+
+                <div id="history-modal" class="hidden fixed inset-0 bg-opacity-50 backdrop-filter backdrop-blur-lg flex justify-center items-center overflow-y-scroll">
+                    <div class="bg-white w-[80%] h-[60%] p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-end">
+                            <button id="close-history" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="text-black text-xl">
+                            <div id="history" class="flex flex-col">
+                                <div class="flex items-center gap-2">
+                                    <div class="flex">50</div> 
+                                    <span>*</span> 
+                                    <div>3</div> 
+                                    <span>=</span>
+                               </div>
+                               <div class="mt-4">150</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <h2 id="display" class="text-5xl overflow-hidden">0</h2>
             </div>
@@ -64,17 +85,9 @@
             </div>      
         </div>
 
-          <!-- HIDDEN FORMS -->
-          <div class="relative border hidden">
-            <div  id="num1"></div>
-            <div  id="operator"></div>
-            <div  id="num2"></div>
-            <div  id="result"></div>
-        </div>
-    </div>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
- <script src="../CSC415/script.js"></script>   
+ <script src="/script.js"></script>   
 </body>
 </html>
 
