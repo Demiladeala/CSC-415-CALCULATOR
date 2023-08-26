@@ -1,3 +1,6 @@
+const historyIcon = document.getElementById("menuIcon");
+const historyModal = document.getElementById("history-modal");
+const closeHistory = document.getElementById("close-history");
 const display = document.getElementById("display");
 const numberButtons = document.querySelectorAll('.number-button');
 const clearTextButton = document.querySelector('.clear-button');
@@ -15,6 +18,14 @@ let operator = '';
 let operatorActive = false;
 let num1 = null;
 let num2 = null;
+
+historyIcon.addEventListener("click", () => {
+    historyModal.classList.remove("hidden");
+});
+
+closeHistory.addEventListener("click", () => {
+    historyModal.classList.add("hidden");
+});
 
 shadowElements.forEach(element => {
     element.addEventListener('click', () => {
