@@ -21,6 +21,35 @@ let num2 = null;
 
 historyIcon.addEventListener("click", () => {
     historyModal.classList.remove("hidden");
+    let action = 'history.php';
+    fetch(action, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function(response) {
+        // Check if response is ok
+        if (response.ok) {
+            return response.text();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+    }).then(function(responseData) {
+        responseJson = JSON.parse(responseData);
+
+        // Check for error
+        if (responseJson.error) {
+            console.error(responseJson.error);
+            return;
+        }
+
+        // Send response to HTML
+        document.getElementById("history").innerHTML = responseJson.message;
+        console.log('Response:', responseJson);
+        // Process response data
+    }).catch(function(error) {
+        console.error('Error:', error);
+    });
 });
 
 closeHistory.addEventListener("click", () => {

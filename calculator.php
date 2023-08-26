@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = connectDatabase($servername, $username, $password, $dbname);
 
     // Create table if it does not exist
-    $sql = "CREATE TABLE IF NOT EXISTS history (id INT AUTO_INCREMENT PRIMARY KEY, num1 FLOAT, operator VARCHAR(10), num2 FLOAT, result FLOAT)";
+    $sql = "CREATE TABLE IF NOT EXISTS $dbname (id INT AUTO_INCREMENT PRIMARY KEY, num1 FLOAT, operator VARCHAR(10), num2 FLOAT, result FLOAT)";
     if ($conn->query($sql) === TRUE) {
         echo "Table found/created successfully\n";
     } else {
