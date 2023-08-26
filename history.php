@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     $pResult = $row["result"];
                     
                     // Do something with the data
-                    $message .= "<div class='flex items-center gap-2'><div class='flex'>$pNum1</div><span>$pOperator</span><div>$pNum2</div><span>=</span><div>$pResult</div></div>";
+                    $message .= "<div class='flex items-center gap-6'><div class='flex flex-col'>$pNum1</div><span>$pOperator</span><div>$pNum2</div><span>=</span><div>$pResult</div></div>";
                 }
             } else {
                 $message = "<div class='mt-4'>There is no calculation record yet.</div>"; // Table is empty
