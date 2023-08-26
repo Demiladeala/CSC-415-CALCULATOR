@@ -192,45 +192,6 @@ operatorButtons.forEach(button => {
         if (num1 === null) {
             num1 = parseFloat(display.textContent);
         }
-        else if (num1 !== null && operator)
-        {
-            let action = 'calculator.php';
-            num2 = parseFloat(display.textContent);
-            // Check if there was a previous operator, and no number input in between
-            if (num2 === num1 && operatorActive) {
-                operator = button.classList.contains('pow') ? 'exp' : button.textContent;
-                return; // No calculation, just update operator and return
-            }
-            result = binaryOperationsFunc(operator, num1, num2);
-            display.textContent = result;
-            let data = {
-                pNum1: num1,
-                pNum2: num2,
-                pOperator: operator,
-                pResult: result
-            };
-            fetch(action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data) // Handle response data
-            }).then(function(request) {
-                // Check if response is ok
-                if (request.ok) {
-                    return request.text();
-                } else {
-                    throw new Error('Error: ' + request.status);
-                }
-            }).then(function(responseData) {
-                console.log('Response:', responseData);
-                // Process response data
-            }).catch(function(error) {
-                console.error('Error:', error);
-            });
-            num1 = result;
-            num2 = null;
-        }
     });
 });
 
@@ -280,7 +241,7 @@ unaryOperatorButtons.forEach(opButton => {
 });
 
 equalButton.addEventListener('click', () => {
-    if (num1 !== null && !operatorActive) {
+    if (num1 !== null) {
         let action = 'calculator.php';
         num2 = parseFloat(display.textContent);
         result = binaryOperationsFunc(operator, num1, num2);

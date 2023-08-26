@@ -1,5 +1,8 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $session_id = session_id();
+
     // Database connection (modify with your actual database details)
     $servername = "localhost";
     $username = "favour";
@@ -20,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if ($result->num_rows > 0) {
         // Query to retrieve all rows and columns from the table
-        $query = "SELECT * FROM $tablename";
+        $query = "SELECT * FROM $tablename WHERE user_session_id = '$session_id' ORDER BY id DESC LIMIT 10";
 
         $result = $conn->query($query);
 

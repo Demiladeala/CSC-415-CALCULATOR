@@ -1,14 +1,18 @@
 <?php
+session_start();    
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $session_id = session_id();
+
     // Database connection (modify with your actual database details)
     $servername = "localhost";
     $username = "favour";
     $password = "csc415calculator$";
     $dbname = "csc415calculator";
+    $tablename = "history";
     $conn = connectDatabase($servername, $username, $password, $dbname);
 
     // Create table if it does not exist
-    $sql = "CREATE TABLE IF NOT EXISTS $dbname (id INT AUTO_INCREMENT PRIMARY KEY, num1 FLOAT, operator VARCHAR(10), num2 FLOAT, result FLOAT)";
+    $sql = "CREATE TABLE IF NOT EXISTS $tablename (id INT AUTO_INCREMENT PRIMARY KEY, user_session_id VARCHAR(255) NOT NULL, num1 FLOAT, operator VARCHAR(10), num2 FLOAT, result FLOAT)";
     if ($conn->query($sql) === TRUE) {
         echo "Table found/created successfully\n";
     } else {
@@ -25,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pResult = $data['pResult'];
 
     // Insert data into a table (modify with your actual table name)
-    $sql = "INSERT INTO history (num1, operator, num2, result) VALUES ('$pNum1', '$pOperator', '$pNum2', '$pResult')";
+    $sql = "INSERT INTO history (user_session_id, num1, operator, num2, result) VALUES ('$session_id', '$pNum1', '$pOperator', '$pNum2', '$pResult')";
     if ($conn->query($sql) === TRUE) {
         echo "Data inserted successfully\n";
     } else {
