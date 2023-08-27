@@ -90,4 +90,4 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- The calculator application is based on the [CSC-415-CALCULATOR](https://github.com/Demiladeala/CSC-415-CALCULATOR) project by [Favour Olusayo](https://github.com/OluwaFavour) and [Oluwademilade Ala](https://github.com/Demiladeala).
+   - The calculator application is based on the [CSC-415-CALCULATOR](https://github.com/Demiladeala/CSC-415-CALCULATOR) project by CSC Department.
